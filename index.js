@@ -13,12 +13,12 @@ db.on('error', error => console.error(error));
 db.once('open',() => console.log('DATABASE connection initiated successfully...'))
 
 // here we are going to be creating our api endpoints 
+app.use(express.json());
 
 
 const subscriberROUTES = require('./routes/subscribers.js');
 app.use('/subscribers',subscriberROUTES);
 
-app.use(express.json());
 
 
 app.get('/', (req, res) => {

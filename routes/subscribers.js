@@ -16,14 +16,33 @@ router.get('/', async(req, res) => {
         res.status(500).json({message: error.message})
     }
 })
-// getting one
+
+
+// GETTING ONE:
 router.get('/:id',(req, res) => {
     res.status(200).json({ value: req.params.id});
 })
-// creating one --this is a post request as we are adding something to our db/collection
-router.post('/',(req, res) => {
-    
+
+
+// CREATING ONE: --this is a post request as we are adding something to our db/collection
+router.post('/', async(req, res) => {
+    // make a new subscriber based on our pre-defined and imported model Schema: subscriber
+    const subscriber = new Subscriber({
+        name: req.body.name,
+        subscribedToChannel: req.body.subscribedToChannel
+    });
+    try{
+        // we are going to try to save subscriber object to the database with subscriber.save()
+        // then save the returned object in a new variable when/if the server responds.
+        const newSubscriber = await subscriber.save();
+        // the 201 status returns that an object has been successfully created.
+        res.status(201).json(newSubscriber)
+    } catch (error) {
+        // 400 error means that the user gave us bad data.
+        res.status(400).json({message: error.message})
+    }
 })
+
 
 // updating one, we are using path instead of put as we are only going to be updating based
 // solely on what the user is actually passing to us. PUT would update all of the information
