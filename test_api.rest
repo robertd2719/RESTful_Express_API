@@ -2,7 +2,7 @@ GET http://localhost:3000/subscribers
 
 ###
 
-GET http://localhost:3000/subscribers/1
+GET http://localhost:3000/subscribers/5e6534eeaeae6b1cfc74af93
 
 
 ###
@@ -11,6 +11,6 @@ POST http://localhost:3000/subscribers
 Content-Type: application/json
 
 {
-    "name": "Amy Lee",
-    "subscribedToChannel":"Something About Guitarz"
+    "name": "Arnold Swartza",
+    "subscribedToChannel":"I mizz da Austria"
 }
