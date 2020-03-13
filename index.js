@@ -14,6 +14,7 @@ db.once('open',() => console.log('DATABASE connection initiated successfully...'
 
 // here we are going to be creating our api endpoints 
 
+
 const subscriberROUTES = require('./routes/subscribers.js');
 app.use('/subscribers',subscriberROUTES);
 
