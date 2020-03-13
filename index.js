@@ -7,17 +7,20 @@ const mongoose = require('mongoose');
 const app = express();
 
 // here we we are going to activate our database.
-mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.DATABASE_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 const db = mongoose.connection;
 db.on('error', error => console.error(error));
-db.once('open',() => console.log('DATABASE connection initiated successfully...'))
+db.once('open', () => console.log('DATABASE connection initiated successfully...'))
 
 // here we are going to be creating our api endpoints 
 app.use(express.json());
 
 
 const subscriberROUTES = require('./routes/subscribers.js');
-app.use('/subscribers',subscriberROUTES);
+app.use('/subscribers', subscriberROUTES);
 
 
 
