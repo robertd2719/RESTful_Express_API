@@ -18,4 +18,4 @@ const subscriberSchema = new mongoose.Schema({
 
 // the mongoose.model takes in two parameters the Model in the database
 // we are working with and its schema
-modules.exports = mongoose.model('Subscriber',subscriberSchema)
+module.exports = mongoose.model('Subscriber',subscriberSchema)
